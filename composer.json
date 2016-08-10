@@ -1,6 +1,6 @@
 {
     "name": "Cofee-Lovers/HTCPCP-Server",
-    "description": "Simple sharing thumbs website",
+    "description": "HTCPCP Server",
     "type": "project",
     "autoload": {
         "psr-4": {"CL\\": "src/"}
@@ -16,8 +16,8 @@
     },
     "authors": [
         {
-            "name": "Petr Pokorny",
-            "email": "me@petrpokorny.cz"
+            "name": "Petr Pokorný",
+            "email": "petr@petrpokorny.cz"
         },
         {
             "name": "Nikola Trbojevic",
