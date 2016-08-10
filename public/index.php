@@ -8,7 +8,7 @@ $app = new Silex\Application();
 
 // create a log channel
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
-    'monolog.logfile' => __DIR__.'/../app.log',
+    'monolog.logfile' => 'php://stdout',
 ));
 
 // admin controllers
