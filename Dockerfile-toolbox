@@ -1,0 +1,9 @@
+FROM php:7.0
+
+WORKDIR /usr/local/bin
+RUN curl -o composer-setup.php https://getcomposer.org/installer \
+    && php composer-setup.php \
+    && ln -s composer.phar composer
+
+RUN apt-get update && apt-get -y install git
+WORKDIR /var/www/html

@@ -1,0 +1,10 @@
+version: '2'
+services:
+    nginx:
+        image: "coffee-lovers/nginx"
+        volumes_from:
+            - "fpm"
+    fpm:
+        image: "coffee-lovers/fpm"
+        volumes:
+            - "/var/www"
