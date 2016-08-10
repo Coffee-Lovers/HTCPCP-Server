@@ -14,8 +14,6 @@ services:
         volumes:
             - "./:/var/www/html"
     toolbox:
-        ports:
-            - "8080:80"
         volumes_from:
             - "fpm"
 
