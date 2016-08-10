@@ -13,9 +13,10 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
 
 // admin controllers
 $service = $app['controllers_factory'];
-$service->get('/world', function () use ($app) {
+
+$service->match('/world', function () use ($app) {
     return (new CL\Controllers\HelloWorld($app['monolog']))->indexAction();
-});
+})->method('GET|BREW');
 
 $app->mount("/hello", $service);
 $app->run();
