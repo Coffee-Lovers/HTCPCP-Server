@@ -6,7 +6,7 @@ For protocol details, please check https://www.ietf.org/rfc/rfc2324.txt
 
 ## how to start?
 - install dependencies
-`docker-compose run fpm composer install`
+`docker-compose run toolbox composer install`
 - run service
 `docker-compose up -d`
 - test if it works
