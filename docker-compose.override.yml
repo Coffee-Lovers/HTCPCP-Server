@@ -13,6 +13,10 @@ services:
             dockerfile: 'Dockerfile-fpm'
         volumes:
             - "./:/var/www/html"
+    rabbit:
+        ports:
+            - "15672:15672"
+
     toolbox:
         volumes_from:
             - "fpm"

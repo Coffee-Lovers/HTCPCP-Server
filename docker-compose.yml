@@ -8,3 +8,5 @@ services:
         image: "coffee-lovers/fpm"
         volumes:
             - "/var/www"
+    rabbit:
+        image: "rabbitmq:3-management"
