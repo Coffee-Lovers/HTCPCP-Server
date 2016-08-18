@@ -3,6 +3,7 @@ FROM php:7.0-fpm
 COPY fpm/xdebug.so /usr/local/lib/php/extensions/no-debug-non-zts-20151012/
 COPY fpm/php.ini /usr/local/etc/php/
 RUN docker-php-ext-install bcmath
+RUN touch /tmp/xdebug.log && chmod -R 777 /tmp/
 
 VOLUME /var/www/html
 COPY . /var/www/html
