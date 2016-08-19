@@ -11,6 +11,10 @@ $app->register(new Silex\Provider\MonologServiceProvider(), array(
     'monolog.logfile' => 'php://stdout',
 ));
 
+$app->register(new Silex\Provider\TwigServiceProvider(), array(
+    'twig.path' => __DIR__.'/../views',
+));
+
 // create a rabbit service
 $app['queue'] = function () {
     return new \CL\Queue\Implementations\RabbitMQ('rabbit', 5672, 'guest', 'guest');
@@ -25,7 +29,7 @@ $service->match('/world', function () use ($app) {
 $app->mount("/hello", $service);
 
 $app->match('/queue', function () use ($app) {
-    return (new CL\Controllers\Queue($app['queue'], $app['monolog']))->pushAction();
+    return (new CL\Controllers\Queue($app['queue'], $app['monolog'], $app['twig']))->pushAction();
 })->method('POST|GET');
 
 $app->run();

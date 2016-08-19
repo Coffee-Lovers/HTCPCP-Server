@@ -4,9 +4,19 @@ services:
         image: "coffeelovers/nginx"
         volumes_from:
             - "fpm"
+        networks:
+              - main
+
     fpm:
         image: "coffeelovers/htcpcpserver"
         volumes:
             - "/var/www"
+        networks:
+              - main
     rabbit:
         image: "rabbitmq:3-management"
+        networks:
+            - main
+
+networks:
+    main:

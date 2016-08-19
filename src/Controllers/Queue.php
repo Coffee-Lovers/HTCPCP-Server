@@ -9,15 +9,21 @@ class Queue
 
     protected $queue;
 
+    protected $twig;
+
     /**
      * The consturctor method
      * @param CLQueueQueueInterface $queue  The queue implementation.
      * @param PsrLogLoggerInterface $logger The logger implementation
      */
-    public function __construct(\CL\Queue\QueueInterface $queue, \Psr\Log\LoggerInterface $logger)
-    {
+    public function __construct(
+        \CL\Queue\QueueInterface $queue,
+        \Psr\Log\LoggerInterface $logger,
+        $twig
+    ) {
         $this->logger = $logger;
         $this->queue  = $queue;
+        $this->twig   = $twig;
     }
 
     /**
@@ -31,9 +37,9 @@ class Queue
         $success = $this->queue->push($task);
         if ($success) {
             $this->logger->info("Task successfully pushed to queue.");
-            return "OK";
+            return $this->twig->render('queue.twig', ['status' => 'OK']);
         }
         $this->logger->error("Task creation failed.");
-        return "FAIL";
+        return $this->twig->render('queue.twig', ['status' => 'FAIL']);
     }
 }
