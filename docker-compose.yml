@@ -5,7 +5,7 @@ services:
         volumes_from:
             - "fpm"
     fpm:
-        image: "coffeelovers/HTCPCPServer"
+        image: "coffeelovers/htcpcpserver"
         volumes:
             - "/var/www"
     rabbit:
