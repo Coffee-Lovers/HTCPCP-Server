@@ -1,11 +1,11 @@
 version: '2'
 services:
     nginx:
-        image: "coffee-lovers/nginx"
+        image: "coffeelovers/nginx"
         volumes_from:
             - "fpm"
     fpm:
-        image: "coffee-lovers/fpm"
+        image: "coffeelovers/HTCPCPServer"
         volumes:
             - "/var/www"
     rabbit:
