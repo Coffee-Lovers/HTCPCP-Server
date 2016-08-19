@@ -1,5 +1,9 @@
-var exampleSocket = new WebSocket("ws:///wsserver", "socket");
+var conn = new WebSocket("ws://wsserver:8081");
 
-exampleSocket.on("mesage", function(msg){
-    console.log($msg)
-});
+conn.onopen = function(e) {
+    console.log("Connection established!");
+};
+
+conn.onmessage = function(e) {
+    console.log(e.data);
+};
