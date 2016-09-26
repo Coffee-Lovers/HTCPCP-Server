@@ -1,20 +1,22 @@
 <?php
 namespace CL\Controllers;
 
-use CL\CoffeePot\Implementations\Dummy;
-
 class Queue
 {
+    /** @var \Psr\Log\LoggerInterface  */
     protected $logger;
 
+    /** @var \CL\Queue\QueueInterface  */
     protected $queue;
 
+    /** @var \Twig_Environment  */
     protected $twig;
 
     /**
      * The consturctor method
-     * @param CLQueueQueueInterface $queue  The queue implementation.
-     * @param PsrLogLoggerInterface $logger The logger implementation
+     * @param \CL\Queue\QueueInterface $queue  The queue implementation.
+     * @param \Psr\Log\LoggerInterface $logger The logger implementation
+     * @param \Twig_Environment        $twig   The twig compiler
      */
     public function __construct(
         \CL\Queue\QueueInterface $queue,
@@ -29,7 +31,7 @@ class Queue
     /**
      * Send message to the queue to initiate brewing
      *
-     * @return void
+     * @return string
      */
     public function pushAction()
     {

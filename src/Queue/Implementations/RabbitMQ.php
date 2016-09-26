@@ -2,6 +2,7 @@
 namespace CL\Queue\Implementations;
 
 use \CL\Queue\QueueInterface;
+use PhpAmqpLib\Channel\AMQPChannel;
 use \PhpAmqpLib\Connection\AMQPStreamConnection;
 use \PhpAmqpLib\Message\AMQPMessage;
 
@@ -10,11 +11,17 @@ use \PhpAmqpLib\Message\AMQPMessage;
  */
 class RabbitMQ implements QueueInterface
 {
+    /** @var string  */
     protected $host;
+    /** @var string  */
     protected $port;
+    /** @var string  */
     protected $username;
+    /** @var string  */
     protected $password;
+    /** @var  AMQPChannel */
     protected $channel;
+    /** @var  AMQPStreamConnection */
     protected $connection;
 
     /**
@@ -38,15 +45,14 @@ class RabbitMQ implements QueueInterface
 
     /**
      * Push task to the queue
-     * @param  Task $m The task to push to queue.
+     * @param \CL\Queue\Task $task The task to push to queue.
      *
-     * @return bool (if the push was successfull or not)
+     * @return bool
      */
-    public function push(\CL\Queue\Task $m): bool
+    public function push(\CL\Queue\Task $task): bool
     {
         $this->connect();
-        $data = "hello world";
-        $msg = new AMQPMessage($data, array('delivery_mode' => 2));
+        $msg = new AMQPMessage(serialize($task), array('delivery_mode' => 2));
 
         $this->channel->basic_publish($msg, '', 'task_queue');
         $this->tearDown();
