@@ -36,7 +36,7 @@ class Queue
     public function pushAction()
     {
         $task    = new \CLLibs\Queue\Task();
-        $success = $this->queue->push($task);
+        $success = $this->queue->push($task, 'task_queue');
         if ($success) {
             $this->logger->info("Task successfully pushed to queue.");
             return $this->twig->render('queue.twig', ['status' => 'OK']);
