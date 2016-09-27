@@ -14,7 +14,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 // create a rabbit service
 $app['queue'] = function () {
-    return new \CLLibs\Queue\Implementations\RabbitMQ('rabbit', 5672, 'guest', 'guest');
+    return new \CLLibs\Queue\Queue\RabbitMQ('rabbit', 5672, 'guest', 'guest');
 };
 
 // admin controllers

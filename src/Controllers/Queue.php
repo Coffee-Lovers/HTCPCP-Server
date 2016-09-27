@@ -14,12 +14,12 @@ class Queue
 
     /**
      * The consturctor method
-     * @param \CLLibs\Queue\QueueInterface $queue  The queue implementation.
+     * @param \CLLibs\Queue\Queue      $queue  The queue implementation.
      * @param \Psr\Log\LoggerInterface $logger The logger implementation
      * @param \Twig_Environment        $twig   The twig compiler
      */
     public function __construct(
-        \CLLibs\Queue\QueueInterface $queue,
+        \CLLibs\Queue\Queue $queue,
         \Psr\Log\LoggerInterface $logger,
         $twig
     ) {
