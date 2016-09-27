@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "89e7375953e3b0d5c306a554d9d7b4f8",
-    "content-hash": "c34124108f405a7c620de588e99fa29d",
+    "hash": "eedfe02c8b6c5476107306a8e4c8eaae",
+    "content-hash": "2bba6a64c7731b0e5fb30a37f784e091",
     "packages": [
         {
-            "name": "coffee-lovers/queue",
+            "name": "coffee-lovers/libs",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Coffee-Lovers/Libs.git",
-                "reference": "a064b8bd7e398de3a781a1701f242a47a8157cdb"
+                "reference": "2833098a3a0959a4cc5e48dc484f95988116c374"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Coffee-Lovers/Libs/zipball/a064b8bd7e398de3a781a1701f242a47a8157cdb",
-                "reference": "a064b8bd7e398de3a781a1701f242a47a8157cdb",
+                "url": "https://api.github.com/repos/Coffee-Lovers/Libs/zipball/2833098a3a0959a4cc5e48dc484f95988116c374",
+                "reference": "2833098a3a0959a4cc5e48dc484f95988116c374",
                 "shasum": ""
             },
             "require": {
@@ -51,7 +51,7 @@
                 "source": "https://github.com/Coffee-Lovers/Libs/tree/master",
                 "issues": "https://github.com/Coffee-Lovers/Libs/issues"
             },
-            "time": "2016-09-27 06:37:54"
+            "time": "2016-09-27 19:52:14"
         },
         {
             "name": "monolog/monolog",
@@ -2215,7 +2215,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "coffee-lovers/queue": 20
+        "coffee-lovers/libs": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
