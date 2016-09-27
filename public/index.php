@@ -1,9 +1,6 @@
 <?php
 require_once "../vendor/autoload.php";
 
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
-
 $app = new Silex\Application();
 
 // create a log channel
@@ -17,7 +14,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 // create a rabbit service
 $app['queue'] = function () {
-    return new \CL\Queue\Implementations\RabbitMQ('rabbit', 5672, 'guest', 'guest');
+    return new \CLLibs\Queue\Implementations\RabbitMQ('rabbit', 5672, 'guest', 'guest');
 };
 
 // admin controllers

@@ -6,7 +6,7 @@ class Queue
     /** @var \Psr\Log\LoggerInterface  */
     protected $logger;
 
-    /** @var \CL\Queue\QueueInterface  */
+    /** @var \CLLibs\Queue\QueueInterface  */
     protected $queue;
 
     /** @var \Twig_Environment  */
@@ -14,12 +14,12 @@ class Queue
 
     /**
      * The consturctor method
-     * @param \CL\Queue\QueueInterface $queue  The queue implementation.
+     * @param \CLLibs\Queue\QueueInterface $queue  The queue implementation.
      * @param \Psr\Log\LoggerInterface $logger The logger implementation
      * @param \Twig_Environment        $twig   The twig compiler
      */
     public function __construct(
-        \CL\Queue\QueueInterface $queue,
+        \CLLibs\Queue\QueueInterface $queue,
         \Psr\Log\LoggerInterface $logger,
         $twig
     ) {
@@ -35,7 +35,7 @@ class Queue
      */
     public function pushAction()
     {
-        $task    = new \CL\Queue\Task();
+        $task    = new \CLLibs\Queue\Task();
         $success = $this->queue->push($task);
         if ($success) {
             $this->logger->info("Task successfully pushed to queue.");
