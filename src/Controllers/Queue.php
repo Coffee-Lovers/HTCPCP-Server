@@ -6,7 +6,7 @@ class Queue
     /** @var \Psr\Log\LoggerInterface  */
     protected $logger;
 
-    /** @var \CLLibs\Queue\QueueInterface  */
+    /** @var \CLLibs\Queue\Queue  */
     protected $queue;
 
     /** @var \Twig_Environment  */
