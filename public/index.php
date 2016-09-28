@@ -17,6 +17,10 @@ $app['queue'] = function () use ($app) {
     return new \CLLibs\Queue\Queue\RabbitMQ(new \CLLibs\ConnectionConfig('rabbit', 5672, 'guest', 'guest'), $app['monolog']);
 };
 
+$app['hub'] = function () use ($app) {
+    return new \CLLibs\Messaging\Hub\RabbitMQ(new \CLLibs\ConnectionConfig('rabbit', 5672, 'guest', 'guest'), $app['monolog']);
+};
+
 // admin controllers
 $service = $app['controllers_factory'];
 
@@ -26,7 +30,7 @@ $service->match('/world', function () use ($app) {
 $app->mount("/hello", $service);
 
 $app->match('/queue', function () use ($app) {
-    return (new CL\Controllers\Queue($app['queue'], $app['monolog'], $app['twig']))->pushAction();
+    return (new CL\Controllers\Queue($app['queue'], $app['hub'], $app['monolog'], $app['twig']))->pushAction();
 })->method('POST|GET');
 
 $app->run();

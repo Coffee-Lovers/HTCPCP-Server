@@ -1,6 +1,8 @@
 <?php
 namespace CL\Controllers;
 
+use CLLibs\Messaging\CoffeePotProgressMessage;
+
 class Queue
 {
     /** @var \Psr\Log\LoggerInterface  */
@@ -11,21 +13,28 @@ class Queue
 
     /** @var \Twig_Environment  */
     protected $twig;
+    /**
+     * @var \CLLibs\Messaging\Hub
+     */
+    private $hub;
 
     /**
      * The consturctor method
-     * @param \CLLibs\Queue\Queue      $queue  The queue implementation.
+     * @param \CLLibs\Queue\Queue $queue The queue implementation.
+     * @param \CLLibs\Messaging\Hub $hub The messaging hub.
      * @param \Psr\Log\LoggerInterface $logger The logger implementation
-     * @param \Twig_Environment        $twig   The twig compiler
+     * @param \Twig_Environment $twig The twig compiler
      */
     public function __construct(
         \CLLibs\Queue\Queue $queue,
+        \CLLibs\Messaging\Hub $hub,
         \Psr\Log\LoggerInterface $logger,
         $twig
     ) {
         $this->logger = $logger;
         $this->queue  = $queue;
         $this->twig   = $twig;
+        $this->hub    = $hub;
     }
 
     /**
@@ -38,6 +47,7 @@ class Queue
         $task    = new \CLLibs\Queue\Task();
         $success = $this->queue->push($task, 'task_queue');
         if ($success) {
+            $this->hub->publish(new CoffeePotProgressMessage($task->getId(), CoffeePotProgressMessage::STAGE_PENDING));
             $this->logger->info("Task successfully pushed to queue.");
             return $this->twig->render('queue.twig', ['status' => 'OK']);
         }
