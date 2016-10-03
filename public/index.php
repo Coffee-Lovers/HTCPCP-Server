@@ -14,11 +14,15 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 
 // create a rabbit service
 $app['queue'] = function () use ($app) {
-    return new \CLLibs\Queue\Queue\RabbitMQ(new \CLLibs\ConnectionConfig('rabbit', 5672, 'guest', 'guest'), $app['monolog']);
+    return new \CLLibs\Queue\Queue\RabbitMQ(
+        new \CLLibs\ConnectionConfig('rabbit', 5672, 'guest', 'guest'), $app['monolog']
+    );
 };
 
 $app['hub'] = function () use ($app) {
-    return new \CLLibs\Messaging\Hub\RabbitMQ(new \CLLibs\ConnectionConfig('rabbit', 5672, 'guest', 'guest'), $app['monolog']);
+    return new \CLLibs\Messaging\Hub\RabbitMQ(
+        new \CLLibs\ConnectionConfig('rabbit', 5672, 'guest', 'guest', 'coffeepot_progress'), $app['monolog']
+    );
 };
 
 // admin controllers
