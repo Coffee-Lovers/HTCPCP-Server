@@ -14,5 +14,7 @@ services:
     toolbox:
         volumes_from:
             - "fpm"
+        networks:
+            - main
 
         image: "coffeelovers/php:7.0-toolbox"

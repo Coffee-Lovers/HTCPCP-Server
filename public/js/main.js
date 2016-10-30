@@ -1,7 +1,8 @@
-var conn = new WebSocket("ws://wsserver:8081");
+var conn = new WebSocket("ws://localhost:8085/ws");
 
 conn.onopen = function(e) {
-    console.log("Connection established!");
+    // subscribe to some id
+    conn.send(JSON.stringify({SubscribeTo: "abcd"}))
 };
 
 conn.onmessage = function(e) {
