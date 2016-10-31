@@ -5,11 +5,21 @@
     "autoload": {
         "psr-4": {"CL\\": "src/"}
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Coffee-Lovers/Libs.git"
+        }
+    ],
     "require": {
-        "php": "^7",
-        "silex/silex": "^2.0",
+        "coffee-lovers/libs": "dev-master",
         "monolog/monolog": "^1.20",
+        "php": "^7",
         "psr/log": "^1.0",
+        "php-amqplib/php-amqplib": "^2.6",
+        "symfony/twig-bridge": "^3.1",
+        "twig/twig": "^1.24",
+        "silex/silex": "^2.0",
         "piphp/gpio": "^0.3"
     },
     "require-dev": {

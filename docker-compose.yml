@@ -1,10 +1,24 @@
 version: '2'
 services:
     nginx:
-        image: "coffee-lovers/nginx"
+        image: "coffeelovers/nginx"
         volumes_from:
             - "fpm"
+        networks:
+              - main
+
     fpm:
-        image: "coffee-lovers/fpm"
+        image: "coffeelovers/htcpcpserver"
         volumes:
             - "/var/www"
+        networks:
+              - main
+    rabbit:
+        image: "rabbitmq:3-management"
+        networks:
+            - main
+
+networks:
+    main:
+        external:
+            name: "main"

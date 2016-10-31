@@ -2,21 +2,19 @@ version: '2'
 
 services:
     nginx:
-        build:
-            context: .
-            dockerfile: 'Dockerfile-nginx'
         ports:
             - "8080:80"
     fpm:
-        build:
-            context: .
-            dockerfile: 'Dockerfile-fpm'
         volumes:
             - "./:/var/www/html"
+    rabbit:
+        ports:
+            - "15672:15672"
+
     toolbox:
         volumes_from:
             - "fpm"
+        networks:
+            - main
 
-        build:
-            context: .
-            dockerfile: 'Dockerfile-toolbox'
+        image: "coffeelovers/php:7.0-toolbox"
