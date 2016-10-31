@@ -49,7 +49,7 @@ class Queue
         if ($success) {
             $this->hub->publish(new CoffeePotProgressMessage($task->getId(), CoffeePotProgressMessage::STAGE_PENDING));
             $this->logger->info("Task successfully pushed to queue.");
-            return $this->twig->render('queue.twig', ['status' => 'OK']);
+            return $this->twig->render('queue.twig', ['status' => 'OK', 'taskID' => $task->getId()]);
         }
         $this->logger->error("Task creation failed.");
         return $this->twig->render('queue.twig', ['status' => 'FAIL']);
