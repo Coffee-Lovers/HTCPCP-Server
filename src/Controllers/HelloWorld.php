@@ -1,7 +1,7 @@
 <?php
 namespace CL\Controllers;
 
-use CL\CoffeePot\Implementations\Dummy;
+use CL\CoffeePot\Implementations\Led;
 
 class HelloWorld
 {
@@ -15,13 +15,10 @@ class HelloWorld
     public function indexAction()
     {
         $this->logger->info(__METHOD__ . " Entering method");
-        $coffeePot = new Dummy();
+        $coffeePot = new Led();
         $coffeePot->brewStart();
+        sleep(5);
         $coffeePot->brewStop();
-        $coffeePot->pourCoffeeStart();
-        $coffeePot->pourCoffeeStop();
-        $coffeePot->pourMilkStart();
-        $coffeePot->pourMilkStop();
 
         return "Enjoy your coffee!";
     }
