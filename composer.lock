@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Coffee-Lovers/Libs.git",
-                "reference": "3b39c5b0ed7ef9cf18f456a27897a15b9d751cc3"
+                "reference": "272eede62d7f0d3c5002a4a5564ea7333b3d9a8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Coffee-Lovers/Libs/zipball/3b39c5b0ed7ef9cf18f456a27897a15b9d751cc3",
-                "reference": "3b39c5b0ed7ef9cf18f456a27897a15b9d751cc3",
+                "url": "https://api.github.com/repos/Coffee-Lovers/Libs/zipball/272eede62d7f0d3c5002a4a5564ea7333b3d9a8d",
+                "reference": "272eede62d7f0d3c5002a4a5564ea7333b3d9a8d",
                 "shasum": ""
             },
             "require": {
@@ -51,7 +51,7 @@
                 "source": "https://github.com/Coffee-Lovers/Libs/tree/master",
                 "issues": "https://github.com/Coffee-Lovers/Libs/issues"
             },
-            "time": "2016-10-31 21:47:25"
+            "time": "2016-11-08 13:28:16"
         },
         {
             "name": "monolog/monolog",
@@ -336,16 +336,16 @@
         },
         {
             "name": "silex/silex",
-            "version": "v2.0.3",
+            "version": "v2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Silex.git",
-                "reference": "fd0852ebfa0a4cf1e17d746bb81962ec69bbb6d1"
+                "reference": "49ca08d853731d1635374e5019c8696cfd53c161"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Silex/zipball/fd0852ebfa0a4cf1e17d746bb81962ec69bbb6d1",
-                "reference": "fd0852ebfa0a4cf1e17d746bb81962ec69bbb6d1",
+                "url": "https://api.github.com/repos/silexphp/Silex/zipball/49ca08d853731d1635374e5019c8696cfd53c161",
+                "reference": "49ca08d853731d1635374e5019c8696cfd53c161",
                 "shasum": ""
             },
             "require": {
@@ -385,7 +385,7 @@
                 "symfony/twig-bridge": "~2.8|^3.0",
                 "symfony/validator": "~2.8|^3.0",
                 "symfony/var-dumper": "~2.8|^3.0",
-                "twig/twig": "~1.8|~2.0"
+                "twig/twig": "~1.27|~2.0"
             },
             "type": "library",
             "extra": {
@@ -417,7 +417,7 @@
             "keywords": [
                 "microframework"
             ],
-            "time": "2016-08-22 17:50:21"
+            "time": "2016-11-06 18:09:06"
         },
         {
             "name": "symfony/debug",
@@ -1255,16 +1255,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "4.0.1",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "5f3f7e736d6319d5f1fc402aff8b026da26709a3"
+                "reference": "6cba06ff75a1a63a71033e1a01b89056f3af1e8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/5f3f7e736d6319d5f1fc402aff8b026da26709a3",
-                "reference": "5f3f7e736d6319d5f1fc402aff8b026da26709a3",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/6cba06ff75a1a63a71033e1a01b89056f3af1e8d",
+                "reference": "6cba06ff75a1a63a71033e1a01b89056f3af1e8d",
                 "shasum": ""
             },
             "require": {
@@ -1314,7 +1314,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-07-26 14:39:29"
+            "time": "2016-11-01 05:06:24"
         },
         {
             "name": "phpunit/php-file-iterator",

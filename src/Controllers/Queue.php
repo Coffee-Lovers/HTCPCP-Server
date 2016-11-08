@@ -45,7 +45,7 @@ class Queue
     public function pushAction()
     {
         $task = new \CLLibs\Queue\Task();
-        $this->hub->publish(new CoffeePotProgressMessage($task->getId(), CoffeePotProgressMessage::STAGE_PENDING));
+        $this->hub->publish(new CoffeePotProgressMessage($task->getId(), CoffeePotProgressMessage::STAGE_PENDING, (new \DateTime())->getTimestamp()));
         $success = $this->queue->push($task, 'task_queue');
 
         if ($success) {
@@ -54,7 +54,7 @@ class Queue
         }
 
         $this->logger->error("Task creation failed.");
-        $this->hub->publish(new CoffeePotProgressMessage($task->getId(), CoffeePotProgressMessage::STAGE_FAILED));
+        $this->hub->publish(new CoffeePotProgressMessage($task->getId(), CoffeePotProgressMessage::STAGE_FAILED), (new \DateTime())->getTimestamp());
         return $this->twig->render('queue.twig', ['status' => 'FAIL', 'taskID' => $task->getId()]);
     }
 }
